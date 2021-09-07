@@ -1,21 +1,90 @@
+
+// the You Tube site is
+// https://www.youtube.com/watch?v=6LyagkoRWYA
+
+// i am currently at 15.30 in the time line
+
+
+
 // GET REQUEST
+// this is the long way
+// function getTodos() {
+//   axios({
+//     method: 'get',
+//     url: 'https://jsonplaceholder.typicode.com/todos',
+//     params: {
+//       _limit: 5
+//     }
+//   })
+//     .then(res => showOutput(res))
+//     .catch(err => console.error(err));
+// }
+
+// this is the shorter way
 function getTodos() {
-  console.log('GET Request');
+  axios.get('https://jsonplaceholder.typicode.com/todos?_limit=5')
+    .then(res => showOutput(res))
+    .catch(err => console.error(err));
 }
+
 
 // POST REQUEST
+// function addTodo() {
+//   axios({
+//     method: 'post',
+//     url: 'https://jsonplaceholder.typicode.com/todos',
+//     data: {
+//       title: 'New Todo',
+//       completed: false,
+//       other: 'just stuff'
+//     }
+//   })
+//   .then(res => showOutput(res))
+//   .catch(err => console.error(err));
+// }
+// a shorter way to do the same thing
 function addTodo() {
-  console.log('POST Request');
+  axios.post('https://jsonplaceholder.typicode.com/todos',{
+      title: 'New Todo',
+      completed: false,
+      other: 'just stuff'
+  })
+  .then(res => showOutput(res))
+  .catch(err => console.error(err));
 }
 
+
+
 // PUT/PATCH REQUEST
+// put replaces the entire item
+// patch only changes what you specify
 function updateTodo() {
-  console.log('PUT/PATCH Request');
+  axios.put('https://jsonplaceholder.typicode.com/todos/1',{  // we know to put the /1 by looking at the documentation
+      title: 'Updated Todo',
+      completed: true,
+      other: 'just stuff'
+  })
+  .then(res => showOutput(res))
+  .catch(err => console.error(err));
+}
+
+// now we are looking at patch 
+function updateTodo() {
+  axios.patch('https://jsonplaceholder.typicode.com/todos/1',{  // we know to put the /1 by looking at the documentation
+      //title: 'Updated Todo',
+      completed: true,
+      other: 'just stuff'
+  })
+  .then(res => showOutput(res))
+  .catch(err => console.error(err));
 }
 
 // DELETE REQUEST
 function removeTodo() {
-  console.log('DELETE Request');
+  axios.delete('https://jsonplaceholder.typicode.com/todos/1',)  // we know to put the /1 by looking at the documentation
+  
+  .then(res => showOutput(res))
+  .catch(err => console.error(err));
 }
 
 // SIMULTANEOUS DATA
